@@ -2,6 +2,15 @@ from tkinter import Label
 from tkinter import Tk
 import time
 
+def digital_clock():
+    #saat alanı
+    time_live= time.strftime("%H:%M:%S")
+    label.config(text=time_live)
+    #tarih alanı
+    date_info=time.strftime("%d %B %Y")
+    date_label.config(text=date_info)
+    label.after(200,digital_clock)
+
 app_windows = Tk()
 app_windows.title("Dijital Saat")
 app_windows.geometry("500x200")
@@ -22,14 +31,7 @@ label.grid(row=0,column=1,padx=border_widht,pady=10)
 date_label= Label(app_windows,font=text_font,bg=background,fg=foreground)
 date_label.grid(row=1,column=1,padx=border_widht,pady=10)
 
-def digital_clock():
-    #saat alanı
-    time_live= time.strftime("%H:%M:%S")
-    label.config(text=time_live)
-    #tarih alanı
-    date_info=time.strftime("%d %B %Y")
-    date_label.config(text=date_info)
-    label.after(200,digital_clock)
+
 
 digital_clock()
 app_windows.mainloop()
